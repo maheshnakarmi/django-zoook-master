@@ -1,0 +1,35 @@
+{% load i18n %}
+                    <ul class="product-options border3t">
+                        {% for product in products %}<li><strong>{% trans "Code" %}:</strong> {{product.code}}</li>
+                        {% if product.ean13 %}<li><strong>{% trans "EAN13" %}:</strong> {{product.ean13}}{% endif %}{% endfor %}</li>
+                    </ul>
+                    <div class="cart-box cart-box-simple border3b">
+                        {% for prod in products %}{% if prod.active %}<form id="cartAddForm" class="cart-add-form" method="{% if user.is_authenticated %}post{% else %}get{% endif %}" action="{{ LOCALE_URI }}/sale/checkout/">
+	                        {% if product.status %}
+	                            <button class="border2 add-to-cart">{% trans "Add to cart" %}</button>
+	                            <input name="qty" type="number" value="1" class="qty border2" />
+	                            <input name="code" type="hidden" value="{{ prod.code }}"/>
+	                        {% else %}
+	                            <div class="out-service ico border3b"><h3>{% trans "This product is currently unavailable." %}</h3></div>
+	                        {% endif %}
+                        {% csrf_token %}
+                        </form>{%endif %}{% endfor %}
+                        {% if product.status %}
+	                        <div id="product-price-{{product_product.id}}" class="price-box">
+	                            <span class="regular-price">
+	                                <span class="price">
+	                                    {% if currency_position == 'before' %}{{ currency }} {{price}}{% else %}{{price}} {{ currency }}{% endif %}
+	                                </span>
+	                            </span>
+	                        </div>
+                        {% endif %}
+                        <script type="text/javascript">
+                        $(document).ready(function() {
+                            $('.add-to-cart').click(function() {
+                                $("#esale").css({ opacity: 0.3 })
+                                $('#loading-bar').show();
+                                document.forms["cartAddForm"].submit();
+                            });
+                        });
+                        </script>
+                    </div>

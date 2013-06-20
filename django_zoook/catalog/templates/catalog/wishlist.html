@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% load i18n %}
+{% load thumbnail %}
+{% load modules %}
+
+{% block head %}<link href="{{ STATIC_URL }}css/{{ THEME }}/user.css" rel="stylesheet" type="text/css" media="screen">{% endblock %}
+{% block pathway %}<div id="pathway"><ul><li><a href="/">{% trans "Home" %}</a></li><li><span>&gt;</span> <a href="{{ LOCALE_URI }}/{% trans 'catalog' %}/wishlist">{% trans "Wishlist" %}</a></li></ul></div>{% endblock %}
+
+{% block content %}
+<div id="page-wrap" class="clearfix">
+    {% include 'partner/menu.html' %}
+
+    {% module wishlist.right id="sidebar" class="block border5" %}
+
+    <div id="content">
+        <div id="catalog-wishlist" class="block border5 clearfix">
+            <table id="shopping-cart-table" class="cart-table">
+            <thead>
+                <tr>
+                    <th>&nbsp;</th>
+                    <th><span class="nobr">{% trans "Product Name" %}</span></th>
+                    <th><span class="nobr">{% trans "Description" %}</span></th>
+                    <th><span class="nobr">{% trans "Price" %}</span></th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}<tr>
+                    <td><a href="{{product.product.get_absolute_url}}" title="{{ product.name }}" class="product-image"><img src="{% thumbnail product.base_image.url 80x80 product_zoook.png %}" alt="{{ product.name }}" /></a></td>
+                    <td><h2 class="product-name"><a href="{{product.product.get_absolute_url}}">{{ product.name }}</a></h2></td>
+                    <td class="a-right"><span class="cart-description"><span class="short-description">{% autoescape off %}{{ product.product.shortdescription }}{% endautoescape %}</span></span></td>
+                    <td class="a-right">
+                        <div id="product-price-{{product.products.0.id}}" class="price-box">
+                        <span class="regular-price">
+                            <span class="price">
+	                            {% if currency_position == 'before' %}{{ currency }} {{product.products.0.price}}{% else %}{{product.products.0.price}} {{ currency }}{% endif %}
+	                        </span>
+                        </span>
+                        </div>
+                    </td>
+                    <td class="a-center"><a href="{{ LOCALE_URI }}/{% trans 'catalog' %}/wishlist/remove/{{product.product.slug}}" title="{% trans "Remove item" %}" class="btn-trash">{% trans "Remove item" %}</a></td>
+                </tr>{% endfor %}
+            </tbody>
+            </table>
+        </div>
+    </div>
+    
+{% if update_price and products|length > 0 %}<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.zupdateprice.js"></script>{% endif %}
+</div>
+{% endblock %}
+
+{% block jqueryload %}{% if update_price and products|length > 0 %}$.zUpdatePrice( {url: '{{ LOCALE_URI }}/catalog/updateprice/', 'delayUpdater': 1000, 'textAlert' : '{% trans "Price updating..." %}'} ){% endif %}{% endblock %}

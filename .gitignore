@@ -1,0 +1,24 @@
+# Ignore configuration files
+#django_zoook/settings.py
+#django_zoook/config.py
+
+# Ignore byte compiled files
+*.pyc
+*.log
+
+log
+dist
+build
+
+# Ignore Eclipse IDE files
+.settings
+.project
+.pydevproject
+
+
+*.egg-info
+.directory
+
+# Ignore linked resources
+paypal
+django_zoook/static/inplaceeditform

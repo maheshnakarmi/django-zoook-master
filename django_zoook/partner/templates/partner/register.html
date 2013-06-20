@@ -1,0 +1,165 @@
+{% extends "layout.html" %}
+{% load i18n %}
+
+{% block head %}
+    <link href="{{ STATIC_URL }}css/{{ THEME }}/form.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="{{ STATIC_URL }}css/{{ THEME }}/user.css" rel="stylesheet" type="text/css" media="screen">
+    <script src="{{ STATIC_URL }}js/jquery.validate.min.js" type="text/javascript"></script>
+    {% if request.LANGUAGE_CODE != 'en' %}
+    	<script src="{{ STATIC_URL }}js/localization/messages_{{ request.LANGUAGE_CODE }}.js" type="text/javascript"></script>
+    {% endif %}
+
+    <script type="text/javascript">
+     var RecaptchaOptions = {
+        theme : 'clean'
+     };
+     </script>
+{% endblock %}
+
+{% block content %}
+<div class="primary-content span-12 last">
+
+<div id="top-header">{% trans "Create an account." %}</div>
+
+{% if message %}
+    <div id="message" class="msg-error">
+        <h1>
+	        {% for msg in message %}
+	           {{ msg }}<br/>
+	        {% endfor %}
+        </h1>
+    </div>
+{% endif %}
+
+<form action="{% url partner_register %}" method="post" id="registerForm">
+<fieldset>
+    <div class="col2-set">
+        <div class="new-users">
+            <h1>{% trans "New customers" %}</h1>
+            <ul>
+            	<h3>{% trans "User Information" %}</h3>
+                <li>
+                    <label for="id_username">{{ form.username.label }} <span class="required">*</span></label>
+                    <input type="text" name="username" id="id_username" maxlength="30" value="{{ username }}" class="required" minlength="6"/> (az09)
+                </li>
+                <li class="register-field">
+                    <label for="id_email">{% trans "Email" %} <span class="required">*</span></label>
+                    <input type="text" name="email" id="id_email" value="{{ email }}" class="required email"/>
+                </li>
+                <li class="register-field">
+                    <label for="id_password1">{{ form.password1.label }} <span class="required">*</span></label>
+                    <input type="password" name="password1" id="id_password1" class="required" minlength="6"/>
+                </li>
+                <li class="register-field">
+                    <label for="id_password2">{{ form.password2.label }} <span class="required">*</span></label>
+                    <input type="password" name="password2" id="id_password2" class="required" minlength="6"/>
+                </li>
+            </ul>
+            <ul>
+            	<h3>{% trans "Customer Information" %}</h3>
+                <li>
+                    <label for="id_name">{% trans "Full Name" %} <span class="required">*</span></label>
+                    <input type="text" name="name" id="id_name" maxlength="128" value="{{ name }}" class="required" minlength="6"/>
+                </li>
+                <li>
+                	<label for="vat_code">{% trans "Country" %} <span class="required">*</span></label>
+                    <select name="vat_code" id="vat_code" class="vat_code">
+                    {% for country in countries %}<option value="{{ country.code }}" {% if country.code == country_default %} selected="selected"{% endif %}>{{ country.name }}</option>{% endfor %}
+                    </select>
+                </li>
+                {% if titles|length >= 0 %}
+	                <li>
+	                    <label for="title">{% trans "You are ?" %}</label>
+	                    <select name="title" id="title" class="title">
+	                        <option value=""></option>
+	                        {% for title in titles %}<option value="{{ title.id }}" {% ifequal title.id|slugify title_default %} selected="selected"{% endifequal %}>{{ title.name }}</option>{% endfor %}
+	                    </select>
+	                </li>
+                {% endif %}
+                <li>
+                    <label for="id_vat">{% trans "Vat" %} {% if partner_vat_required %}<span class="required">*</span>{% endif %}</label>
+                    <input type="text" name="vat" id="id_vat" maxlength="128" value="{{ vat }}" {% if partner_vat_required %}class="required"{% endif %} minlength="6"/>
+                </li>
+            </ul>
+            <ul>
+                <h3>{% trans "Invoice Address" %}</h3>
+                <li>
+                    <label for="id_street">{% trans "Address" %} <span class="required">*</span></label>
+                    <input type="text" name="street" id="id_street" maxlength="128" value="{{ street }}" class="required" minlength="6"/>
+                </li>
+                <li>
+                    <label for="id_zip">{% trans "ZIP" %} <span class="required">*</span></label>
+                    <input type="text" name="zip" id="id_zip" maxlength="128" value="{{ zip }}" class="required" minlength="4"/>
+                </li>
+                <li>
+                    <label for="id_city">{% trans "City" %} <span class="required">*</span></label>
+                    <input type="text" name="city" id="id_city" maxlength="128" value="{{ city }}" class="required" minlength="2"/>
+                </li>
+                <li>
+                    <label for="id_phone">{% trans "Phone" %}</label>
+                    <input type="text" name="phone" id="id_phone" maxlength="128" value="{{ phone }}" minlength="7"/>
+                </li>
+                <li>
+                	<input type="checkbox" name="delivery-same-address" {% if same_address %} checked="checked"{% endif %} />
+                	<label for="delivery-same-address"><i>{% trans "Same address for delivery" %}</i></label>
+                </li>
+            </ul>
+            <ul id="delivery-address"{% if same_address %} style="display: none;"{% endif %}>
+                <h3>{% trans "Delivery Address" %}</h3>
+                <li>
+                    <label for="delivery_id_street">{% trans "Address" %} <span class="required">*</span></label>
+                    <input type="text" name="delivery_street" id="delivery_id_street" maxlength="128" value="{{ delivery_street }}" class="required" minlength="6"{% if same_address %} disabled="disabled"{% endif %}/>
+                </li>
+                <li>
+                    <label for="delivery_id_zip">{% trans "ZIP" %} <span class="required">*</span></label>
+                    <input type="text" name="delivery_zip" id="delivery_id_zip" maxlength="128" value="{{ delivery_zip }}" class="required" minlength="4"{% if same_address %} disabled="disabled"{% endif %}/>
+                </li>
+                <li>
+                    <label for="delivery_id_city">{% trans "City" %} <span class="required">*</span></label>
+                    <input type="text" name="delivery_city" id="delivery_id_city" maxlength="128" value="{{ delivery_city }}" class="required" minlength="2"{% if same_address %} disabled="disabled"{% endif %}/>
+                </li>
+                <li>
+                    <label for="delivery_id_phone">{% trans "Phone" %}</label>
+                    <input type="text" name="delivery_phone" id="delivery_id_phone" maxlength="128" value="{{ delivery_phone }}" minlength="7"/>
+                </li>
+            </ul>
+        </div>
+        {% if html_captcha %}
+        <div class="col-2 register-users">
+            <h3>{% trans "To create an Account insert the same number" %}</h3>
+            {{ html_captcha|safe }}
+        </div>
+        {% endif %}
+    </div>
+    <div class="col2-set">
+        <div class="col-1">
+            <div class="buttons-set">
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="buttons-set">
+                <input type="submit" value="{% trans "Create new account" %}" class="btn-action" />
+                <p class="comment"><span class="required">*</span> {% trans "Required Fields" %}</p>
+            </div>
+        </div>
+    </div>
+</fieldset>
+{% if redirect %}<input type="hidden" value="{{ redirect }}" name="redirect"/>{% endif %}
+{% csrf_token %}
+</form>
+
+</div>
+{% endblock %}
+{% block jqueryload %}
+    $("#registerForm").validate();
+
+	$('input[name=delivery-same-address]').change(function() {
+		if($(this).is(':checked')) {
+			$('#delivery-address').hide();
+			$('#delivery-address input').attr('disabled', 'disabled');
+		} else {
+			$('#delivery-address').show();
+			$('#delivery-address input').removeAttr('disabled');
+		}
+	});
+{% endblock %}

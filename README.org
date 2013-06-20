@@ -1,0 +1,27 @@
+
+* Zoook e-Sale
+
+[[https://raw.github.com/eoconsulting/django-zoook/master/artwork/Zoook_Screenshots.png]]
+
+This is a fork of the Django part of Zoook. This is what the
+developers have to say about Zoook:
+#+BEGIN_QUOTE
+Zoook is e-commerce OpenERP App without connector. Forget connectors
+and errors.
+#+END_QUOTE
+
+We forked this package to provide better packaging facilities to this
+module, bugfixing, and new features.
+
+Also, this version is compatible with *OpenERP v6.0 and v6.1*,
+and come with ALL SOURCES, including the templates and payment modules.
+
+This sources are available in https://github.com/eoconsulting/django-zoook
+
+The OpenERP module part is in https://github.com/eoconsulting/openerp-esale
+
+This software was original writed by *Zikzakmedia*.
+
+__________
+
+*[[http://www.eoconsulting.com.ar][Enterprise Objects Consulting]]*

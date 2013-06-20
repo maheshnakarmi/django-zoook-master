@@ -1,0 +1,444 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-13 16:03+0200\n"
+"PO-Revision-Date: 2011-09-13 16:02+0100\n"
+"Last-Translator: Raimon Esteve <resteve@zikzakmedia.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: views.py:65 templates/partner/login.html:49
+msgid "Login"
+msgstr "Entrar"
+
+#: views.py:66 views.py:301
+#, python-format
+msgid "Account frontpage of %(site)s"
+msgstr "Página principal de la cuenta de %(site)s"
+
+#: views.py:81
+msgid "Sorry. Your user is not active."
+msgstr "Su usuario no está activo."
+
+#: views.py:83
+msgid "Sorry. Your username or password is not valid."
+msgstr "Su usuario o contraseña no son válidos."
+
+#: views.py:101
+msgid "Create an Account"
+msgstr "Crear una cuenta"
+
+#: views.py:102
+#, python-format
+msgid "Create an Account of %(site)s"
+msgstr "Crear una cuenta de %(site)s"
+
+#: views.py:126
+#, python-format
+msgid "Username is short. Minimum %(size)s characters"
+msgstr "Nombre de usuario corto. Mínimo %(size)s caracteres"
+
+#: views.py:129
+#, python-format
+msgid "Password is short. Minimum %(size)s characters"
+msgstr "Contraseña corta. Mínimo %(size)s caracteres"
+
+#: views.py:137 views.py:284
+msgid "Sorry. The email is not valid. Try again."
+msgstr ""
+"La dirección de correo electrónico no es válida. Vuelva a intentarlo."
+
+#: views.py:142
+msgid "Error with captcha number. Copy same number."
+msgstr "Error en el código de verificación. Copie el mismo número."
+
+#: views.py:146
+msgid "Sorry. This user already exists. Use another username."
+msgstr "Este usuario ya existe. Utilice otro nombre de usuario."
+
+#: views.py:149
+msgid ""
+"Sorry. This email already exists. Use another email or remember password."
+msgstr ""
+"Este correo electrónico ya existe. Utilice otro o recuerde la contraseña."
+
+#: views.py:156 views.py:350
+msgid "Error when connecting with our ERP. Try again or cantact us."
+msgstr ""
+"Error conectando con nuestro ERP. Vuelva a intentarlo, o contáctenos."
+
+#: views.py:161
+msgid ""
+"Sorry. This VAT already exists our ERP. Contact Us for create a new user."
+msgstr ""
+"Este CIF/NIF ya existe en nuestro ERP. Contáctese con nosotros para crear un "
+"usuario en la tienda."
+
+#: views.py:170
+msgid "Vat not valid. Check if vat is correct"
+msgstr "NIF/CIF no válido. Compruebe que el NIF/CIF es correcto."
+
+#: views.py:218
+#, python-format
+msgid "New user is added - %(name)s"
+msgstr "Nuevo usuario %(name)s"
+
+#: views.py:219
+#, python-format
+msgid ""
+"This email is generated automatically from %(site)s\n"
+"\n"
+"Username: %(username)s\n"
+"Password: %(password)s\n"
+"\n"
+"%(live_url)s\n"
+"\n"
+"Please, don't answer this email"
+msgstr ""
+"Este correo electrónico se ha enviado automáticamente desde %(site)s\n"
+"\n"
+"Nombre de usuario: %(username)s\n"
+"Contraseña: %(password)s\n"
+"\n"
+"%(live_url)s\n"
+"\n"
+"Por favor, no conteste este correo"
+
+#: views.py:230
+msgid "Sorry. Passwords do not match. Try again."
+msgstr "Las contraseñas no coinciden. Vuelva a intentarlo."
+
+#: views.py:248 templates/partner/remember.html:39
+msgid "Remember"
+msgstr "Recuerde"
+
+#: views.py:249
+#, python-format
+msgid "Remember account of %(site)s"
+msgstr "Recuerdatorio de la cuenta de %(site)s"
+
+#: views.py:259
+msgid "Error with captcha number. Copy the same number."
+msgstr "Error en el código de verificación. Copie el mismo número."
+
+#: views.py:273
+#, python-format
+msgid "Remember username - %(name)s"
+msgstr "Recuerdatorio del usuario - %(name)s"
+
+#: views.py:274
+#, python-format
+msgid ""
+"This email is generated  automatically from %(site)s\n"
+"\n"
+"Username: %(username)s\n"
+"Password: %(password)s\n"
+"\n"
+"%(live_url)s\n"
+"\n"
+"Please, do not answer the email"
+msgstr ""
+"Este correo electrónico se ha enviado automáticamente desde %(site)s\n"
+"\n"
+"Nombre de usuario: %(username)s\n"
+"Contraseña: %(password)s\n"
+"\n"
+"%(live_url)s\n"
+"\n"
+"Por favor, no conteste este correo"
+
+#: views.py:278
+#, python-format
+msgid "A new password are sent to %(email)s"
+msgstr "Se ha enviado una nueva contraseña a su cuenta %(email)s"
+
+#: views.py:281
+msgid "Sorry. This email not exist. Try again."
+msgstr "Esta dirección de correo electrónico no existe. Vuelva a intentarlo."
+
+#: views.py:300
+#, python-format
+msgid "Profile %(full_name)s"
+msgstr "Perfil %(full_name)s"
+
+#: views.py:311 templates/partner/changepassword.html:32
+#: templates/partner/menu.html:8 templates/partner/profile.html:20
+msgid "Change password"
+msgstr "Cambiar contraseña"
+
+#: views.py:312
+#, python-format
+msgid "Change password of %(site)s"
+msgstr "Cambiar contraseña de %(site)s"
+
+#: views.py:327
+#, python-format
+msgid "New password is added - %(name)s"
+msgstr "Añadida nueva contraseña - %(name)s"
+
+#: views.py:328
+#, python-format
+msgid ""
+"This email is generated  automatically from %(site)s\n"
+"\n"
+"New password: %(password)s\n"
+"\n"
+"%(live_url)s\n"
+"\n"
+"Please, do not answer the email"
+msgstr ""
+"Este correo electrónico se ha enviado automáticamente desde %(site)s\n"
+"\n"
+"Nueva contraseña: %(password)s\n"
+"\n"
+"%(live_url)s\n"
+"\n"
+"Por favor, no conteste este correo electrónico"
+
+#: views.py:331
+msgid "New password is added."
+msgstr "Se ha añadido una nueva contraseña."
+
+#: views.py:333
+#, python-format
+msgid "Sorry. Passwords need %(size)s characters or more. Try again."
+msgstr ""
+"Las contraseñas deben tener %(size)s caracteres o más. Vuelva a intentarlo."
+
+#: views.py:335
+msgid "Sorry. Passwords don't match. Try again."
+msgstr "Las contraseñas no coinciden. Vuelva a intentarlo."
+
+#: views.py:346
+msgid "Are you a customer? Please, contact us. We will create a new role."
+msgstr ""
+"¿Eres cliente? Contáctese con nosotros. Le crearemos un cliente en nuestra "
+"tienda."
+
+#: views.py:359
+msgid "User Profile"
+msgstr "Perfil de usuario"
+
+#: views.py:360
+#, python-format
+msgid "User profile of %(site)s"
+msgstr "Perfil de usuario de %(site)s"
+
+#: templates/partner/changepassword.html:19
+msgid "Insert your new password"
+msgstr "Introduzca su nueva contraseña"
+
+#: templates/partner/login.html:17
+msgid "Log in or create an account."
+msgstr "Identifíquese o cree una cuenta."
+
+#: templates/partner/login.html:23 templates/partner/register.html:41
+msgid "New customers"
+msgstr "Nuevo cliente"
+
+#: templates/partner/login.html:24
+msgid ""
+"If you create an account in our store, "
+"you could buy and access the orders quickly."
+msgstr ""
+"Si crea una cuenta en nuestra tienda, podrá comprar y tener acceso a los "
+"pedidos de forma rápida."
+
+#: templates/partner/login.html:27
+msgid "Registered customers"
+msgstr "Clientes registrados"
+
+#: templates/partner/login.html:28
+msgid "If you have an account with us, please log in."
+msgstr "Si tiene una cuenta con nosotros, identifíquese por favor."
+
+#: templates/partner/login.html:44 templates/partner/register.html:103
+msgid "Create new account"
+msgstr "Crear una cuenta"
+
+#: templates/partner/login.html:49
+msgid "Remember Password"
+msgstr "¿Olvidó su contraseña?"
+
+#: templates/partner/login.html:50 templates/partner/register.html:104
+msgid "Required Fields"
+msgstr "Campos requeridos"
+
+#: templates/partner/menu.html:4 templates/partner/profile.html:17
+msgid "Orders"
+msgstr "Pedidos"
+
+#: templates/partner/menu.html:5 templates/partner/partner.html:18
+msgid "Invoice"
+msgstr "Factura"
+
+#: templates/partner/menu.html:5 templates/partner/profile.html:18
+msgid "Invoices"
+msgstr "Facturas"
+
+#: templates/partner/menu.html:6
+msgid "Account"
+msgstr "Mi cuenta"
+
+#: templates/partner/menu.html:6 templates/partner/profile.html:19
+msgid "Your account"
+msgstr "Su cuenta"
+
+#: templates/partner/menu.html:7
+msgid "catalog"
+msgstr "catalogo"
+
+#: templates/partner/menu.html:7
+msgid "My Wishlist"
+msgstr "Mi lista de deseos"
+
+#: templates/partner/menu.html:9 templates/partner/profile.html:21
+msgid "Logout"
+msgstr "Salir"
+
+#: templates/partner/partner.html:14
+msgid "Name"
+msgstr "Nombre"
+
+#: templates/partner/partner.html:15
+msgid "VAT"
+msgstr "NIF"
+
+#: templates/partner/partner.html:17 templates/partner/register.html:55
+msgid "Address"
+msgstr "Dirección"
+
+#: templates/partner/partner.html:19
+msgid "There are not invoice address available"
+msgstr "No dispone de dirección de facturación"
+
+#: templates/partner/partner.html:23
+msgid "Delivery"
+msgstr "Envío"
+
+#: templates/partner/partner.html:24
+msgid "There are not delivery address available"
+msgstr "No dispone de dirección de envío"
+
+#: templates/partner/profile.html:14
+#, python-format
+msgid "Hello %(full_name)s."
+msgstr "Hola %(full_name)s."
+
+#: templates/partner/profile.html:19
+msgid "Your acccount"
+msgstr "Su cuenta"
+
+#: templates/partner/register.html:44
+msgid "Customer"
+msgstr "Cliente"
+
+msgid "User Information"
+msgstr "Información del Usuario"
+
+msgid "Customer Information"
+msgstr "Información del Cliente"
+
+msgid "Invoice Address"
+msgstr "Dirección de Factura"
+
+msgid "Delivery Address"
+msgstr "Dirección de Envío"
+
+msgid "Same address for delivery"
+msgstr "Misma dirección para el envío"
+
+msgid "Full Name"
+msgstr "Nombre Completo"
+
+msgid "You are ?"
+msgstr "¿Ud. es?"
+
+#: templates/partner/register.html:48
+msgid "Vat"
+msgstr "NIF/CIF"
+
+#: templates/partner/register.html:59
+msgid "ZIP"
+msgstr "Código postal"
+
+#: templates/partner/register.html:63
+msgid "City"
+msgstr "Ciudad"
+
+#: templates/partner/register.html:67
+msgid "Country"
+msgstr "País"
+
+#: templates/partner/register.html:117
+msgid "Phone"
+msgstr "Teléfono"
+
+#: templates/partner/register.html:94
+msgid "Mobile"
+msgstr "Celular"
+
+#: templates/partner/register.html:74
+msgid "Login user"
+msgstr "Usuario registrado"
+
+#: templates/partner/register.html:85 templates/partner/remember.html:33
+msgid "Email"
+msgstr "Correo electrónico"
+
+#: templates/partner/register.html:88
+msgid "Remember?"
+msgstr "Recordar?"
+
+msgid "Successfully saved profile."
+msgstr "Perfil guardado correctamente."
+
+#: templates/partner/register.html:92
+msgid "To create an Account insert the same number"
+msgstr "Para crear una cuenta introduzca el texto siguiente"
+
+#: templates/partner/remember.html:29
+msgid "Insert your email and username and new password are you send it"
+msgstr "Introduzca el correo electrónico y se le enviará una nueva contraseña."
+
+msgid "Create an account."
+msgstr "Crear una cuenta."
+
+msgid "Error sending new password. Try again, or contact with the Administrator."
+msgstr "Error enviando nueva password. Intente nuevamente, o contáctese con el Administrador."
+
+#~ msgid "partner"
+#~ msgstr "empresa"
+
+#~ msgid "partners"
+#~ msgstr "empresas"
+
+#~ msgid "Your details are updated successfully"
+#~ msgstr "Sus datos se han actualizado correctamente"
+
+#~ msgid "Error validation form. Try again"
+#~ msgstr "Error en la validación del formulario. Vuelva a intentarlo"
+
+msgid "Save"
+msgstr "Guardar"
+
+#: models.py:35
+msgid "name"
+msgstr "nombre"
+
+#: models.py:36
+msgid "shortcut"
+msgstr "abreviación"
+
+#: models.py:37
+msgid "update price"
+msgstr "actualizar precio"

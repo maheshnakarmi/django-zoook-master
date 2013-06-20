@@ -1,0 +1,433 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-13 16:03+0200\n"
+"PO-Revision-Date: 2011-09-07 14:43+0100\n"
+"Last-Translator: Jesús Martín <jmartin@zikzakmedia.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: views.py:65 templates/partner/login.html:49
+msgid "Login"
+msgstr "Entra"
+
+#: views.py:66 views.py:301
+#, python-format
+msgid "Account frontpage of %(site)s"
+msgstr "Pàgina principal de compte de %(site)s"
+
+#: views.py:81
+msgid "Sorry. Your user is not active."
+msgstr "El seu usuari no està actiu."
+
+#: views.py:83
+msgid "Sorry. Your username or password is not valid."
+msgstr "El seu usuari o contrasenya no són vàlids."
+
+#: views.py:101
+msgid "Create an Account"
+msgstr "Crea un compte"
+
+#: views.py:102
+#, python-format
+msgid "Create an Account of %(site)s"
+msgstr "Crea un compte de %(site)s"
+
+#: views.py:126
+#, python-format
+msgid "Username is short. Minimum %(size)s characters"
+msgstr "Nom d'usuari curt. Mínim %(size)s caràcters"
+
+#: views.py:129
+#, python-format
+msgid "Password is short. Minimum %(size)s characters"
+msgstr "Contrasenya curta. Mínim %(size)s caràcters"
+
+#: views.py:137 views.py:284
+msgid "Sorry. The email is not valid. Try again."
+msgstr "Aquesta adreça de correu electrònic no és vàlida. Torneu a provar."
+
+#: views.py:142
+msgid "Error with captcha number. Copy same number."
+msgstr "Error amb el codi de verificació. Copieu el mateix nombre."
+
+#: views.py:146
+msgid "Sorry. This user already exists. Use another username."
+msgstr "Aquest usuari ja existeix. Utilitzeu un altre nom."
+
+#: views.py:149
+msgid ""
+"Sorry. This email already exists. Use another email or remember password."
+msgstr ""
+"Aquest correu electrònic ja existeix. Utilitzeu un altre o recordeu la "
+"contrasenya."
+
+#: views.py:156 views.py:350
+msgid "Error when connecting with our ERP. Try again or cantact us."
+msgstr ""
+"Error connectant amb el nostre ERP. Torneu a provar o contacteu amb "
+"nosaltres."
+
+#: views.py:161
+msgid ""
+"Sorry. This VAT already exists our ERP. Contact Us for create a new user"
+msgstr "Aquest NIF ja existeix en el nostre ERP. Utilitzeu un altre nom."
+
+#: views.py:170
+msgid "Vat not valid. Check if vat is correct"
+msgstr "NIF/CIF no vàlid. Comproveu que el NIF/CIF sigui correcte."
+
+#: views.py:218
+#, python-format
+msgid "New user is added - %(name)s"
+msgstr "Nou usuari %(name)s"
+
+#: views.py:219
+#, python-format
+msgid ""
+"This email is generated automatically from %(site)s\n"
+"\n"
+"Username: %(username)s\n"
+"Password: %(password)s\n"
+"\n"
+"%(live_url)s\n"
+"\n"
+"Please, don't answer this email"
+msgstr ""
+"Aquest correu electrònic s'ha enviat automàticament des de %(site)s\n"
+"\n"
+"Nom d'usuari: %(username)s\n"
+"Contrasenya: %(password)s\n"
+"\n"
+"%(live_url)s\n"
+"\n"
+"Si us plau, no contesteu aquest correu"
+
+#: views.py:230
+msgid "Sorry. Passwords do not match. Try again."
+msgstr "La contrasenya no coincideix. Torneu a prova."
+
+#: views.py:248 templates/partner/remember.html:39
+msgid "Remember"
+msgstr "Recordatori"
+
+#: views.py:249
+#, python-format
+msgid "Remember account of %(site)s"
+msgstr "Recordatori del compte de %(site)s"
+
+#: views.py:259
+msgid "Error with captcha number. Copy the same number."
+msgstr "Error amb el codi de verificació. Copieu el mateix número."
+
+#: views.py:273
+#, python-format
+msgid "Remember username - %(name)s"
+msgstr "Recordatori usuari - %(name)s"
+
+#: views.py:274
+#, python-format
+msgid ""
+"This email is generated  automatically from %(site)s\n"
+"\n"
+"Username: %(username)s\n"
+"Password: %(password)s\n"
+"\n"
+"%(live_url)s\n"
+"\n"
+"Please, do not answer the email"
+msgstr ""
+"Aquest correu electrònic s'ha enviat automàticament des de %(site)s\n"
+"\n"
+"Nom d'usuari: %(username)s\n"
+"Contrasenya: %(password)s\n"
+"\n"
+"%(live_url)s\n"
+"\n"
+"Si us plau, no contesteu aquest correu"
+
+#: views.py:278
+#, python-format
+msgid "A new password are sent to %(email)s"
+msgstr "S'ha enviat una nova contrasenya al seu correu %(email)s"
+
+#: views.py:281
+msgid "Sorry. This email not exist. Try again"
+msgstr ""
+"Disculpeu. Aquesta adreça de correu electrònic no existeix. Torneu a provar."
+
+#: views.py:300
+#, python-format
+msgid "Profile %(full_name)s"
+msgstr "Perfil %(full_name)s"
+
+#: views.py:311 templates/partner/changepassword.html:32
+#: templates/partner/menu.html:8 templates/partner/profile.html:20
+msgid "Change password"
+msgstr "Canvia contrasenya"
+
+#: views.py:312
+#, python-format
+msgid "Change password of %(site)s"
+msgstr "Canvia contrasenya de %(site)s"
+
+#: views.py:327
+#, python-format
+msgid "New password is added - %(name)s"
+msgstr "Nova contrasenya - %(name)s"
+
+#: views.py:328
+#, python-format
+msgid ""
+"This email is generated  automatically from %(site)s\n"
+"\n"
+"New password: %(password)s\n"
+"\n"
+"%(live_url)s\n"
+"\n"
+"Please, do not answer the email"
+msgstr ""
+"Aquest correu electrònic s'ha enviat automàticament des de %(site)s\n"
+"\n"
+"Nova contrasenya: %(password)s\n"
+"\n"
+"%(live_url)s\n"
+"\n"
+"Si us plau, no contesteu aquest correu electrònic"
+
+#: views.py:331
+msgid "New password is added."
+msgstr "Nova contrasenya afegida."
+
+#: views.py:333
+#, python-format
+msgid "Sorry. Passwords need %(size)s characters or more. Try again."
+msgstr ""
+"Disculpleu. Les contrasenyes han de tenir %(size)s caràcters o més. Torneu a "
+"provar."
+
+#: views.py:335
+msgid "Sorry. Passwords don't match. Try again."
+msgstr "Les contrasenyes no coincideixen. Torneu a provar."
+
+#: views.py:346
+msgid "Are you a customer? Please, contact us. We will create a new role."
+msgstr ""
+"És client? Si us plau, contacteu amb nosaltres. Us crearem com a client."
+
+#: views.py:359
+msgid "User Profile"
+msgstr "Perfil d'usuari"
+
+#: views.py:360
+#, python-format
+msgid "User profile of %(site)s"
+msgstr "Perfil d'usuari de %(site)s"
+
+#: templates/partner/changepassword.html:19
+msgid "Insert your new password"
+msgstr "Escribiu la vostra nova contrasenya"
+
+#: templates/partner/login.html:17
+msgid "Log in or create an account."
+msgstr "Identifiqueu-vos o creeu un compte."
+
+#: templates/partner/login.html:23 templates/partner/register.html:41
+msgid "New customers"
+msgstr "Nous clients"
+
+#: templates/partner/login.html:24
+msgid ""
+"If you create an account in our store, "
+"you could buy and access the orders quickly."
+msgstr ""
+"Si creeu un compte a la nostra botiga, podreu comprar i tenir accés a les "
+"comandes de forma ràpida."
+
+#: templates/partner/login.html:27
+msgid "Registered customers"
+msgstr "Clients registrats"
+
+#: templates/partner/login.html:28
+msgid "If you have an account with us, please log in."
+msgstr "Si teniu un compte amb nosaltres, si us plau, identifiqueu-vos."
+
+#: templates/partner/login.html:44 templates/partner/register.html:103
+msgid "Create new account"
+msgstr "Crea un compte"
+
+#: templates/partner/login.html:49
+msgid "Remember Password"
+msgstr "Recordeu contrasenya"
+
+#: templates/partner/login.html:50 templates/partner/register.html:104
+msgid "Required Fields"
+msgstr "Camps requerits"
+
+#: templates/partner/menu.html:4 templates/partner/profile.html:17
+msgid "Orders"
+msgstr "Comandes"
+
+#: templates/partner/menu.html:5 templates/partner/partner.html:18
+msgid "Invoice"
+msgstr "Factures"
+
+#: templates/partner/menu.html:5 templates/partner/profile.html:18
+msgid "Invoices"
+msgstr "Factures"
+
+#: templates/partner/menu.html:6
+msgid "Account"
+msgstr "Compte"
+
+#: templates/partner/menu.html:6 templates/partner/profile.html:19
+msgid "Your account"
+msgstr "El seu compte"
+
+#: templates/partner/menu.html:7
+msgid "catalog"
+msgstr "cataleg"
+
+#: templates/partner/menu.html:7
+msgid "My Wishlist"
+msgstr "La meva llista de desitjos"
+
+#: templates/partner/menu.html:9 templates/partner/profile.html:21
+msgid "Logout"
+msgstr "Surt"
+
+#: templates/partner/partner.html:14
+msgid "Name"
+msgstr "Nom"
+
+#: templates/partner/partner.html:15
+msgid "VAT"
+msgstr "NIF"
+
+#: templates/partner/partner.html:17 templates/partner/register.html:55
+msgid "Address"
+msgstr "Adreça"
+
+#: templates/partner/partner.html:19
+msgid "There are not invoice address available"
+msgstr "No hi ha adreça de factura disponible."
+
+#: templates/partner/partner.html:23
+msgid "Delivery"
+msgstr "Lliurament"
+
+#: templates/partner/partner.html:24
+msgid "There are not delivery address available"
+msgstr "No hi ha adreça de lliurament disponible."
+
+#: templates/partner/profile.html:14
+#, python-format
+msgid "Hello %(full_name)s."
+msgstr "Hola %(full_name)s."
+
+#: templates/partner/profile.html:19
+msgid "Your acccount"
+msgstr "El seu compte"
+
+#: templates/partner/register.html:44
+msgid "Customer"
+msgstr "Client"
+
+msgid "User Information"
+msgstr "Informació de l'usuari"
+
+msgid "Customer Information"
+msgstr "Informació del client"
+
+msgid "Invoice Address"
+msgstr "Direcció de Factura"
+
+msgid "Delivery Address"
+msgstr "Adreça d'enviament"
+
+msgid "Same address for delivery"
+msgstr ""
+
+msgid "Full Name"
+msgstr "Nom complet"
+
+msgid "You are ?"
+msgstr "Vostè és ?"
+
+#: templates/partner/register.html:48
+msgid "Vat"
+msgstr "NIF"
+
+#: templates/partner/register.html:59
+msgid "ZIP"
+msgstr "Codi postal"
+
+#: templates/partner/register.html:63
+msgid "City"
+msgstr "Ciutat"
+
+#: templates/partner/register.html:67
+msgid "Country"
+msgstr "País"
+
+#: templates/partner/register.html:117
+msgid "Phone"
+msgstr "Telèfon"
+
+#: templates/partner/register.html:94
+msgid "Mobile"
+msgstr "Mòbil"
+
+#: templates/partner/register.html:74
+msgid "Login user"
+msgstr "Usuari registrat"
+
+#: templates/partner/register.html:85 templates/partner/remember.html:33
+msgid "Email"
+msgstr "Correu electrònic"
+
+#: templates/partner/register.html:88
+msgid "Remember?"
+msgstr "Recorda?"
+
+msgid "Successfully saved profile."
+msgstr "Saved amb èxit perfil."
+
+#: templates/partner/register.html:92
+msgid "To create an Account insert the same number"
+msgstr "Per crear un compte introdiu el mateix número"
+
+#: templates/partner/remember.html:29
+msgid "Insert your email and username and new password are you send it"
+msgstr ""
+"Introdueixi el correu electrònic i se li enviarà una nova constrasenya."
+
+msgid "Create an account."
+msgstr "Crea un compte."
+
+msgid "Error sending new password. Try again, or contact with the Administrator."
+msgstr "Error en enviar la nova contrasenya. Proveu-ho o poseu-vos en contacte amb l'Administrador."
+
+#~ msgid "partner"
+#~ msgstr "empresa"
+
+#~ msgid "partners"
+#~ msgstr "empreses"
+
+#~ msgid "Your details are updated successfully"
+#~ msgstr "Les seves dades s'han actualitzat correctament"
+
+#~ msgid "Error validation form. Try again"
+#~ msgstr "Error en la validació del formulari. Torneu a provar"
+
+msgid "Save"
+msgstr "Guardar"

@@ -1,0 +1,162 @@
+{% extends "layout.html" %}
+{% load i18n %}
+{% load thumbnail %}
+{% load modules %}
+
+{% block head %}<link href="{{ STATIC_URL }}css/jquery.fancybox-1.3.4.css" rel="stylesheet" type="text/css" />
+<link rel="canonical" href="{{request.get_full_path}}" />{% endblock %}
+
+{% block pathway %}<div id="pathway"><ul><li><a href="/">{% trans "Home" %}</a></li><li><span>&gt;</span> {% trans "Products" %}</li> <li><span>&gt;</span> <a href="{{url}}">{{name}}</a></li></ul></div>{% endblock %}
+
+{% block content %}
+    <div id="page-wrap" class="clearfix">
+        <div id="sidebar">
+            {% module product.right class="block block-default ico border5" %}
+
+            <div class="block block-product-related ico border5">
+                <h3>{% trans "Related Products" %}</h3>
+                <div class="block-content">
+                    {% load product_related %}{% render_product_related %}
+                </div>
+            </div>
+
+            <!--div class="block block-minicart ico border5">
+                <h3>{% trans "Your shopping cart" %}</h3>
+                <div class="block-content">
+                    <p>{% trans "You don't have any items inside your cart." %}</p>
+                    <button class="border2 cart-checkout">{% trans "View shopping cart" %}</button>
+                </div>
+            </div-->
+
+            {% if NEWSLATTER_ON %}
+            <div class="block block-newsletter ico border5">
+                <h3>{% trans "Newsletter" %}</h3>
+                <div class="block-content">
+                    <form method="post">
+                        <label>{% trans "Subscribe our newsletter." %}</label>
+                        <input type="text" class="text border2" placeholder="Your e-mail" name="email" />
+                        <button type="submit" class="border2 orange">{% trans "Subscribe" %}</button>
+                    </form>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        <div id="content">
+            <div id="product-{{product_product.id}}" class="product-page block border5 clearfix">
+                <div class="product-imgbox">
+                    <a rel="zoom" href="{% thumbnail base_image.url thumbnail_size product_detail_zoook.png %}" class="product-img zoom" title="{{base_image.name}}"><span class="zoom-icon"></span>
+                    <img src="{% thumbnail base_image.url 300x300 product_detail_zoook.png %}" /></a>
+                    <ul class="other-img">
+                        <li><a rel="zoom" class="zoom" href="{% thumbnail base_image.url thumbnail_size product_detail_zoook.png %}" title="{{base_image.name}}"><img src="{% thumbnail base_image.url 150x150 product_thumb_zoook.png %}" /></a></li>
+                        {% for image in thumb_images %}
+                        <li><a rel="zoom" class="zoom" href="{% thumbnail image.url thumbnail_size product_detail_zoook.png %}" title="{{image.name}}"><img src="{% thumbnail image.url 150x150 product_thumb_zoook.png %}" /></a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="product-item block border5 clearfix">
+                   <div class="product-name" title="{{name}}"><h2>{{name}}</h2></div>
+                    <ul class="add-to">
+                        {% if compare_on %}<li><a href="{{ LOCALE_URI }}/{% trans 'catalog' %}/compare/add/{{product.slug}}" class="loading">{% trans "Add to Compare" %}</a><span class="separator">|</span></li>{% endif %}
+                        {% if user.is_authenticated %}<li><a href="{{ LOCALE_URI }}/{% trans 'catalog' %}/wishlist/add/{{product.slug}}" class="loading">{% trans "Add to Wishlist" %}</a></li>{% endif %}
+                    </ul>
+
+                    <div class="social_network">
+                    	{% if twitter_user %}
+                        <div class="tweet">
+                            <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+                            <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="{{twitter_user}}">Tweet</a>
+                        </div>
+                        {% endif %}
+                        <div class="facebook">
+                            <iframe src="http://www.facebook.com/plugins/like.php?href={{ request.build_absolute_uri }}&amp;layout=standard&amp;show_faces=true&amp;width=380&amp;action=like&amp;colorscheme=light&amp;height=26" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:380px; height:26px;" allowTransparency="true"></iframe>
+                        </div>
+                    </div>
+
+                    <div class="product-description">
+                    {% autoescape off %}
+                        {{product.shortdescription}}
+                    {% endautoescape %}
+                    </div>
+
+                    {% if products|length > 1 %}{% include "catalog/type/variants.html" %}{%else%}{% include "catalog/type/simple.html" %}{% endif %}
+                </div>
+            </div>
+        </div>
+    <!--# TABS -->
+    <div class="product-info">
+        <ul class="tabs">
+            <li><a href="#tab1">{% trans "Description" %}</a></li>
+            {% if related_products|length > 0 %}<li><a href="#tab2">{% trans "Related Products" %}</a></li>{% endif %}
+            {% if upsells_products|length > 0 %}<li><a href="#tab3">{% trans "Up-sells" %}</a></li>{% endif %}
+            <li><a href="#tab4">{% trans "Keywords" %}</a></li>
+        </ul>
+
+        <div class="tab-container">
+            <div id="tab1" class="tab-content">
+            {% if product.description and product.description != 'False' %}
+            {% autoescape off %}
+                {{product.description}}
+            {% endautoescape %}
+            {% endif %}
+            </div>
+
+            {% if related_products|length > 0 %}<div id="tab2" class="tab-content">
+                <table id="product-related-table" class="cart-table">
+                <tbody>
+                    {% for product in related_products %}<tr>
+                        <td><a href="{{product.product.get_absolute_url}}" title="{{ product.product.name }}" class="product-image"><img src="{% thumbnail product.products.0.get_base_image.url 80x80 product_zoook.png %}" alt="{{ product.product.name }}" /></a></td>
+                        <td><h2 class="product-name-related"><a href="{{product.product.get_absolute_url}}">{{ product.product.name }}</a></h2></td>
+                        <td class="product-related-description a-right">{% autoescape off %}{{product.product.shortdescription}}{% endautoescape %}</td>
+                        <td class="product-related-price a-right">
+                            <div id="product-price-{{product.products.0.id}}" class="price-box">
+                            <span class="regular-price">
+                                <span class="price">
+	                                {% if currency_position == 'before' %}{{ currency }} {{product.products.0.price}}{% else %}{{product.products.0.price}} {{ currency }}{% endif %}
+	                            </span>
+                            </span>
+                            </div>
+                        </td>
+                    </tr>{% endfor %}
+                </tbody>
+                </table>
+            </div>{% endif %}
+
+            {% if upsells_products|length > 0 %}<div id="tab3" class="tab-content">
+                <table id="product-upsells-table" class="cart-table">
+                <tbody>
+                    {% for product in upsells_products %}<tr>
+                        <td><a href="{{product.product.get_absolute_url}}" title="{{ product.product.name }}" class="product-image"><img src="{% thumbnail product.products.0.get_base_image.url 80x80 product_zoook.png %}" alt="{{ product.product.name }}" /></a></td>
+                        <td><h2 class="product-name-upsells"><a href="{{product.product.get_absolute_url}}">{{ product.product.name }}</a></h2></td>
+                        <td class="product-upsells-description a-right"><span class="cart-description"><span class="short-description">{% autoescape off %}{{product.product.shortdescription}}{% endautoescape %}</span></span></td>
+                        <td class="product-upsells-price a-right">
+                            <div id="product-price-{{product.products.0.id}}" class="price-box">
+                                <span class="price">
+	                                {% if currency_position == 'before' %}{{ currency }} {{product.products.0.price}}{% else %}{{product.products.0.price}} {{ currency }}{% endif %}
+	                            </span>
+                            </div>
+                        </td>
+                    </tr>{% endfor %}
+                </tbody>
+                </table>
+            </div>{% endif %}
+
+            <div id="tab4" class="tab-content">
+                {% for search_keyword in search_keywords %}<a class="tag" href="{{ LOCALE_URI }}/tag/{{ search_keyword }}" alt="{{ search_keyword }}" title="{{ search_keyword }}">{{ search_keyword }}</a> {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.zproduct.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.fancybox-1.3.4.pack.js"></script>
+{% if update_price and user.is_authenticated and values|length > 0 %}<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.zupdateprice.js"></script>{% endif %}
+{% endblock %}
+
+{% block jqueryload %}{% if update_price and user.is_authenticated and values|length > 0 %}$.zUpdatePrice( {url: '{{ LOCALE_URI }}/catalog/updateprice/', 'delayUpdater': 1000, 'textAlert' : '{% trans "Price updating..." %}'} );{% endif %}
+    function formatTitle(title, currentArray, currentIndex, currentOpts) {
+        return '<div>' + (title && title.length ? '<h3>' + title + '</h3>' : '' ) + '<span class="disclaimer">{% trans "Pictures of this product are provided as a guide only. Colour and aspect may vary from the actual stock." %}</span>' + '</div>';
+    }
+    $("a.zoom").fancybox({overlayColor:'#333','titlePosition': 'inside', 'titleFormat': formatTitle});
+{% endblock %}

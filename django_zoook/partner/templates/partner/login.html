@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+{% load i18n %}
+
+{% block head %}
+    <link href="{{ STATIC_URL }}css/{{ THEME }}/user.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="{{ STATIC_URL }}css/{{ THEME }}/form.css" rel="stylesheet" type="text/css" media="screen">
+{% endblock %}
+
+{% block content %}
+<div class="primary-content span-12 last">
+
+{% if error %}
+    <div id="message" class="msg-error">
+        <h1>{{ error }}</h1>
+    </div>
+{% endif %}
+
+<div id="top-header">{% trans "Log in or create an account." %}</div>
+
+<form action="{% url partner %}" method="post" id="login-form">
+<fieldset>
+    <div class="col2-set">
+        <div class="col-1 new-users">
+            <h3>{% trans "New customers" %}</h3>
+            <p>{% trans "If you create an account in our store, you could buy and access the orders quickly." %}</p>
+        </div>
+        <div class="col-2 registered-users">
+            <h3>{% trans "Registered customers" %}</h3>
+            <p>{% trans "If you have an account with us, please log in." %}</p>
+            <ul class="profile">
+                <li>
+                    <label for="username">{{ form.username.label }} <span class="required">*</span></label>
+                    {{ form.username }}
+                </li>
+                <li>
+                    <label for="password">{{ form.password1.label }} <span class="required">*</span></label>
+                    {{ form.password1 }}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col2-set">
+        <div class="col-1">
+            <div class="buttons-set">
+                <a href="{% url partner_register %}{% if next_url %}?next={{ next_url }}{% endif %}" class="btn-action">{% trans "Create new account" %}</a>
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="buttons-set">
+                <input type="submit" value="{% trans "Login" %}" class="btn-action"/> <a href="{% url partner_remember %}" alt="{% trans "Remember Password" %}">{% trans "Remember Password" %}</a>
+                <p class="comment"><span class="required">*</span> {% trans "Required Fields" %}</p>
+            </div>
+        </div>
+    </div>
+</fieldset>
+{% if redirect %}<input type="hidden" value="{{ redirect }}" name="redirect"/>{% endif %}
+{% csrf_token %}
+</form>
+
+</div>
+{% endblock %}
